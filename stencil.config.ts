@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'wayonco',
+  globalStyle: 'src/global.scss',
   plugins: [
     sass()
   ],
