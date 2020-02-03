@@ -10,10 +10,14 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface WAppBar {}
   interface WButton {
     'color': 'plain' | 'primary' | 'secondary' | 'danger';
     'type': 'basic' | 'raised' | 'outline' | 'flat';
   }
+  interface WInput {}
+  interface WMaterialContainer {}
+  interface WProgressBarLoader {}
   interface WSimpleCard {
     'description': string;
     'image': string;
@@ -28,10 +32,34 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLWAppBarElement extends Components.WAppBar, HTMLStencilElement {}
+  var HTMLWAppBarElement: {
+    prototype: HTMLWAppBarElement;
+    new (): HTMLWAppBarElement;
+  };
+
   interface HTMLWButtonElement extends Components.WButton, HTMLStencilElement {}
   var HTMLWButtonElement: {
     prototype: HTMLWButtonElement;
     new (): HTMLWButtonElement;
+  };
+
+  interface HTMLWInputElement extends Components.WInput, HTMLStencilElement {}
+  var HTMLWInputElement: {
+    prototype: HTMLWInputElement;
+    new (): HTMLWInputElement;
+  };
+
+  interface HTMLWMaterialContainerElement extends Components.WMaterialContainer, HTMLStencilElement {}
+  var HTMLWMaterialContainerElement: {
+    prototype: HTMLWMaterialContainerElement;
+    new (): HTMLWMaterialContainerElement;
+  };
+
+  interface HTMLWProgressBarLoaderElement extends Components.WProgressBarLoader, HTMLStencilElement {}
+  var HTMLWProgressBarLoaderElement: {
+    prototype: HTMLWProgressBarLoaderElement;
+    new (): HTMLWProgressBarLoaderElement;
   };
 
   interface HTMLWSimpleCardElement extends Components.WSimpleCard, HTMLStencilElement {}
@@ -46,17 +74,26 @@ declare global {
     new (): HTMLWSwitchElement;
   };
   interface HTMLElementTagNameMap {
+    'w-app-bar': HTMLWAppBarElement;
     'w-button': HTMLWButtonElement;
+    'w-input': HTMLWInputElement;
+    'w-material-container': HTMLWMaterialContainerElement;
+    'w-progress-bar-loader': HTMLWProgressBarLoaderElement;
     'w-simple-card': HTMLWSimpleCardElement;
     'w-switch': HTMLWSwitchElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface WAppBar {}
   interface WButton {
     'color'?: 'plain' | 'primary' | 'secondary' | 'danger';
     'type'?: 'basic' | 'raised' | 'outline' | 'flat';
   }
+  interface WFillyTabbar {}
+  interface WInput {}
+  interface WMaterialContainer {}
+  interface WProgressBarLoader {}
   interface WSimpleCard {
     'description'?: string;
     'image'?: string;
@@ -68,7 +105,12 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'w-app-bar': WAppBar;
     'w-button': WButton;
+    'w-filly-tabbar': WFillyTabbar;
+    'w-input': WInput;
+    'w-material-container': WMaterialContainer;
+    'w-progress-bar-loader': WProgressBarLoader;
     'w-simple-card': WSimpleCard;
     'w-switch': WSwitch;
   }
@@ -80,7 +122,11 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'w-app-bar': LocalJSX.WAppBar & JSXBase.HTMLAttributes<HTMLWAppBarElement>;
       'w-button': LocalJSX.WButton & JSXBase.HTMLAttributes<HTMLWButtonElement>;
+      'w-input': LocalJSX.WInput & JSXBase.HTMLAttributes<HTMLWInputElement>;
+      'w-material-container': LocalJSX.WMaterialContainer & JSXBase.HTMLAttributes<HTMLWMaterialContainerElement>;
+      'w-progress-bar-loader': LocalJSX.WProgressBarLoader & JSXBase.HTMLAttributes<HTMLWProgressBarLoaderElement>;
       'w-simple-card': LocalJSX.WSimpleCard & JSXBase.HTMLAttributes<HTMLWSimpleCardElement>;
       'w-switch': LocalJSX.WSwitch & JSXBase.HTMLAttributes<HTMLWSwitchElement>;
     }

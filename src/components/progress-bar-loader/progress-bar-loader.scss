@@ -1,0 +1,115 @@
+// Functions
+@function colour($value) {
+  @return map-get($colours, $value);
+}
+
+// Variables
+$preloader-height: 8px;
+
+$colours: (
+  blue:   #3b78e7,
+  white: #ffffff
+);
+
+$animation-duration: 3.5s;
+
+header [role="progressbar"][aria-busy="true"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: $preloader-height;
+  width: 100%;
+  background-color: colour(green);
+  animation: preloader-background linear $animation-duration infinite;
+  
+  &::before,
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 0;
+    height: $preloader-height;
+    background: #afa;
+    animation: preloader-front linear $animation-duration infinite;
+    content: '';
+  }
+  
+  &::before {
+    right: 50%;
+  }
+  
+  &::after {
+    left: 50%;
+  }
+}
+
+// Animations
+@keyframes preloader-background {
+  0%, 24.9% {
+    background-color: colour(blue);
+  }
+  
+  25%, 49.9% {
+    background-color: colour(white);
+  }
+  
+  50%, 74.9% {
+    background-color: colour(blue);
+  }
+  
+  75%, 100% {
+    background-color: colour(white);
+  }
+}
+
+@keyframes preloader-front {
+  0% {
+    width: 0;
+    background-color: colour(white);
+  }
+  
+  24.9% {
+    width: 50%;
+    background-color: colour(white);
+  }
+  
+  25% {
+    width: 0;
+    background-color: colour(blue);
+  }
+  
+  49.9% {
+    width: 50%;
+    background-color: colour(blue);
+  }
+  
+  50% {
+    width: 0;
+    background-color: colour(white);
+  }
+  
+  74.9% {
+    width: 50%;
+    background-color: colour(white);
+  }
+  
+  75% {
+    width: 0%;
+    background-color: colour(blue);
+  }
+  
+  
+  100% {
+    width: 50%;
+    background-color: colour(blue);
+  }
+}
+
+// Unimportant bits
+* {
+  box-sizing: border-box;
+}
+
+
+

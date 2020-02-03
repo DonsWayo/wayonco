@@ -1,0 +1,49 @@
+
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.head-bg {
+  height: 310px;
+  background-color: #2196F3;
+  color: rgba(255, 255, 255, 1);
+}
+
+.content {
+  margin: auto;
+  max-width: 640px;
+}
+
+.card {
+  position: relative;
+  min-height: 200px;
+  background-color: #fff;
+  margin-bottom: 48px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  word-wrap: break-word;
+  margin-top: -140px;
+}
+
+
+
+.main-container {
+  color: rgba(0, 0, 0, 0.87);
+  font: 400 14px/20px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  padding: 34px;
+
+  .title {
+    font-size: 34px;
+    line-height: 135%;
+    margin-bottom: 22px;
+  }
+}
+
